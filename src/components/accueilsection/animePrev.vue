@@ -74,6 +74,7 @@ this.info = info;
     z-index: 999;
     justify-content: space-evenly;
     margin-top: -190px;
+    flex-wrap: wrap;
 }
 
 .tailletitre{

@@ -47,6 +47,7 @@ name: "navbar"
 }
 .colorfond{
     background-color: rgba(0,0,0,0.5);
+    flex-wrap: nowrap !important;
 }
 
 .placementlinks{
@@ -60,7 +61,7 @@ name: "navbar"
 }
 
 .logoplacement img{
-    margin-left: 100px !important;
+    margin-left: 15% !important;
     width: 100px;
     
 

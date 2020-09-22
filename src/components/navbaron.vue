@@ -70,7 +70,7 @@ name: "navbar"
 }
 
 .logoplacement img{
-    margin-left: 100px !important;
+    margin-left: 15% !important;
     
 
 }

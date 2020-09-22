@@ -18,7 +18,7 @@
                     <a href="/forgetpass" class="forgetpass">Mot De Pass Oublié ?</a>
                     <a href="/register" class="register">S'inscrire</a>
                 </div>
-            <button type="submit" class="start">Start !</button>
+            <button @click="login" type="submit" class="start">Start !</button>
 
         </form>
         
@@ -34,6 +34,21 @@ import myFooter from "../components/myfooter.vue"
 export default {
 name: "Login",
 
+methods: {
+    login: function () {
+        this.axios.post("http://localhost:3000/user/login", {
+            pseudo: this.pseudo,
+            password: this.password
+        })
+        .then((result) =>{
+            alert(result);
+        })
+        .catch(err=>{
+            alert(err);
+        })
+    }
+},
+
 components: {
     myNavbarLog,
     myFooter
@@ -41,7 +56,7 @@ components: {
 }
 </script>
 
-<style>
+<style scoped>
 @import url(//db.onlinewebfonts.com/c/a7e3822358f6dcb2f986a68cf24721b2?family=MV+Boli);
 
 .login{
