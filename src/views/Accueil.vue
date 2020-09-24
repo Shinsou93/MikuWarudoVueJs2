@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
 import mynavbaroff from "../components/navbaroff.vue"
 import myaccueilheader from "../components/accueilheader.vue"
 import myAnimePrev from "../components/accueilsection/animePrev.vue"

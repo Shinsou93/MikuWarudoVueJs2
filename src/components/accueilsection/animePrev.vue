@@ -1,6 +1,10 @@
 <template>
   <div class="afficheanimeprev">
-
+    
+    <div class="baniere">
+      <img src="@/assets/StarSkyBaniere.jpg" alt="">
+      <h2>ANIMES</h2>
+    </div>
     <!-- afficher la components lesVideo dans Accueil -->
     <div class="video-ajustement">
     <myvideo v-if="(video !== null, renderComponent)" :video="video" :info="info"/>
@@ -17,6 +21,7 @@
 
         
       </div>
+      
     </div>
 
 
@@ -85,4 +90,30 @@ margin-bottom: 40px;
 
 }
 
+.imageanime img:hover{
+  cursor: pointer;
+}
+
+.baniere img{
+  width: 100%;
+    height: 50px;
+    position: absolute;
+    opacity: 0.7;
+    left: 0;
+    
+}
+
+.baniere h2{
+  position: absolute;
+    left: 0;
+    right: 0;
+    font-size: 34px;
+    color: #fcff00;
+    z-index: 1;
+    padding-top: 5px;
+    font-family: MV Boli;
+    text-shadow: 0 0 0.5em rgb(0, 255, 12), 0 0 0.5em  rgb(0, 255, 12);
+
+
+}
 </style>

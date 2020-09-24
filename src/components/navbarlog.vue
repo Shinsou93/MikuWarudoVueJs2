@@ -23,7 +23,7 @@
     <b-nav-form>
           <b-form-input size="sm" class="mr-sm-2 style-recherche" placeholder="Rechercher..."></b-form-input>
         </b-nav-form>
-        <a href="#">
+        <a @click="logout" href="/">
           <img src="../assets/powerlog.png" alt="boutonoff" width="40">
         </a>
     </div>
@@ -34,8 +34,15 @@
 
 <script>
 export default {
-name: "navbar"
+name: "navbar",
+
+methods: {
+  logout: function (){
+    localStorage.removeItem('token')
+  }
 }
+}
+
 </script>
 
 <style>

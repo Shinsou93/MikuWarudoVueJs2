@@ -76,14 +76,24 @@ methods: {
     login: function () {
         this.axios.post("http://localhost:3000/user/login", {
             pseudo: this.pseudo,
-            password: this.password
+            password: this.password,
+            nom: this.nom,
+            prenom: this.prenom,
+            datedenaissance: this.datedenaissance,
+            image: this.image
         })
-        .then((result) =>{
-            this.$router.push({ name: 'Accueil' })
-            alert(result+'Vous êtes connecté en tant que '+this.pseudo);
+        .then(res => {
+            if(res.data.token){
+                localStorage.setItem("token",res.data.token)
+                this.$router.push({ name: "Profil"})
+                window.location.reload();
+            }else{
+                
+                alert('Utilisateur introuvable ou Password incorrecte')
+            }
         })
-        .catch(err=>{
-            alert(err);
+        .catch(err =>{
+            console.log(err);
         })
     }
 },

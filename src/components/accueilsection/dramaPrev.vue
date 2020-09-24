@@ -1,6 +1,11 @@
 <template>
   <div class="affichedramaprev">
 
+    <div class="baniere">
+      <img src="@/assets/StarSkyBaniere.jpg" alt="">
+      <h2>DRAMAS</h2>
+    </div>
+
     <!-- afficher la components lesVideo dans Accueil -->
     <myvideo v-if="(video !== null, renderComponent)" :video="video" :info="info"/>
 
