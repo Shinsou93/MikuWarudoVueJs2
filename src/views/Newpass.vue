@@ -7,16 +7,7 @@
     </div>
 
     <form  @submit.prevent="submit" class="formulairereg">
-      <h1>REGISTER</h1>
-      <p class="pseudo">Pseudo:</p>
-      <input name="pseudo" type="text" id="pseudo" v-model.trim="$v.pseudo.$model" :class="{'is-invalid': validationStatus($v.pseudo)}"/>
-      <div v-if="!$v.pseudo.required"  class="invalid-feedback">Veuillez entrer un Pseudo valide.</div>
-      
-      <p>Email:</p>
-      <input type="email" name="email" id="email" v-model.trim="$v.email.$model" :class="{'is-invalid': validationStatus($v.email)}"/>
-      <div v-if="!$v.email.required"  class="invalid-feedback">Veuillez entrer un Email valide.</div>
-      <div v-if="!$v.email.email"  class="invalid-feedback">Email invalide ou déjà utilisé.</div>
-
+      <h1>NOUVEAU MOT DE PASSE</h1>
       
       <p>Password:</p>
       <input
@@ -28,21 +19,21 @@
         <div v-if="!$v.password.minLength"  class="invalid-feedback">Le Mot de Passe doit comporter 4 caractères minimum.</div>
         <div v-if="!$v.password.maxLength"  class="invalid-feedback">Le Mot de Passe doit comporter 20 caractères maximum.</div>
         
-        
-        <br />
+     
+      <br />
 
       <div class="optionsup">
-        <a href="/login" class="login">Déjà un compte ? Connexion</a>
+        <a href="/register" class="login">Pas de Compte ? S'inscrire</a>
       </div>
       
       <button  type="submit" class="start">
-        S'inscrire !
+        Envoyer
       </button>
       
       
 
       <h2 class="sendmailnotif">
-        Un mail vous sera envoyé<br />pour activer votre compte !
+        Un mail vous sera envoyé<br/>pour réinitialiser<br/>votre mot de passe !
       </h2>
     </form>
 
@@ -54,33 +45,24 @@
 import myNavbarLog from "../components/navbarlog.vue";
 import myFooter from "../components/myfooter.vue";
 
-import { required, minLength, maxLength, email } from 'vuelidate/lib/validators';
+import { required, minLength, maxLength } from 'vuelidate/lib/validators';
 
 export default {
-  name: "Register",
+  name: "Newpass",
 
   data() {
     return {
-      pseudo: "",
-      email: "",
-      password: "",
+        password: '',
+        forget: this.$route.params.forget,
     };
   },
   validations: {
-      pseudo: {
-          required,
-          minLength: minLength(4)
-      },
-      email: {
-          required,
-          email
-      },
+      
       password: {
           required,
-          minLength: minLength(6),
-          maxLength: maxLength(20)
-      }
-
+          minLength: minLength(4), maxLength: maxLength(20)
+      },
+      
   },
 
   methods: {
@@ -93,19 +75,18 @@ export default {
     submit: function(){
         this.$v.$touch();
         if(this.$v.$pendding || this.$v.$error) return;
-        this.register();
+        this.newpassword();
 
 
     },
-    register: function () {
+    newpassword: function () {
       this.axios
-        .post("http://localhost:3000/user/register", {
-          pseudo: this.pseudo,
-          email: this.email,
+        .post("http://localhost:3000/user/updatepassword", {
           password: this.password,
+          forget: this.forget
         })
         .then(() => {
-            this.$router.push({ name: 'SendMail' })
+            this.$router.push({ name: 'Login' })
          
         })
         .catch((err) => {
@@ -137,12 +118,12 @@ export default {
 
 .formulairereg {
   position: absolute;
-  width: 35%;
-  height: 55%;
+  width: 30%;
+  height: 50%;
   background-color: rgba(0, 255, 252, 0.5);
   z-index: 1;
   left: 50%;
-  top: -5%;
+  top: 0%;
   transform: translate(-50%, 50%);
   border-radius: 20px;
   border: 3px solid #00bff3;
@@ -163,6 +144,7 @@ export default {
   text-align: left;
   padding-left: 15%;
   font-family: MV Boli;
+  padding-top: 10%;
 }
 
 .formulairereg input {

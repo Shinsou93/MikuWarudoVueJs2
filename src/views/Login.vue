@@ -8,17 +8,17 @@
 
         </div>
 
-        <form method="POST" action="/profil" class="formulairelog">
+        <form @submit.prevent="submit" class="formulairelog">
             <h1>LOGIN</h1>
             <p class="pseudo">Pseudo:</p>
-            <input name="pseudo" type="text" id="pseudo">
+            <input name="pseudo" type="text" id="pseudo" v-model.trim="$v.pseudo.$model">
             <p>Password:</p>
-            <input name="password" type="password" id="password"><br>
+            <input name="password" type="password" id="password" v-model="$v.password.$model"><br>
                 <div class="optionsup">
-                    <a href="/forgetpass" class="forgetpass">Mot De Pass Oublié ?</a>
+                    <a href="/forgetpassword" class="forgetpass">Mot De Pass Oublié ?</a>
                     <a href="/register" class="register">S'inscrire</a>
                 </div>
-            <button @click="login" type="submit" class="start">Start !</button>
+            <button type="submit" class="start">Start !</button>
 
         </form>
         
@@ -31,17 +31,56 @@
 <script>
 import myNavbarLog from "../components/navbarlog.vue"
 import myFooter from "../components/myfooter.vue"
+
+import { required, minLength, maxLength } from 'vuelidate/lib/validators';
+
 export default {
 name: "Login",
 
+data () {
+    return {
+        pseudo: '',
+        password: ''
+    }
+},
+
+validations: {
+      pseudo: {
+          required,
+          minLength: minLength(4)
+      },
+      
+      password: {
+          required,
+          minLength: minLength(6),
+          maxLength: maxLength(20)
+      }
+
+  },
+
 methods: {
+
+    validationStatus: function(validation){
+      return typeof validation != "undefined" ? validation.$error : false
+
+    },
+
+    submit: function(){
+        this.$v.$touch();
+        if(this.$v.$pendding || this.$v.$error) return;
+        this.login();
+
+
+    },
+
     login: function () {
         this.axios.post("http://localhost:3000/user/login", {
             pseudo: this.pseudo,
             password: this.password
         })
         .then((result) =>{
-            alert(result);
+            this.$router.push({ name: 'Accueil' })
+            alert(result+'Vous êtes connecté en tant que '+this.pseudo);
         })
         .catch(err=>{
             alert(err);
@@ -71,12 +110,12 @@ components: {
 .formulairelog{
     
     position: absolute;
-    width: 40%;
-    height: 60%;
+    width: 30%;
+    height: 50%;
     background-color: rgba(0, 255, 252, 0.5);
     z-index: 1;
     left: 50%;
-    top: -10%;
+    top: 0%;
     transform: translate(-50%,50%);
     border-radius: 20px;
     border: 3px solid #00bff3;

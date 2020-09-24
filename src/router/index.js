@@ -4,6 +4,9 @@ import Accueil from '../views/Accueil.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Sendmail from '../views/Sendmail.vue'
+import Validmail from '../views/Validmail.vue'
+import Forgetpass from '../views/Forgetpass.vue'
+import Newpass from '../views/Newpass.vue'
 
 Vue.use(VueRouter)
 
@@ -36,6 +39,21 @@ const routes = [
   name: 'SendMail',
   component: Sendmail
   },
+  {
+    path: '/validmail/:email',
+    name: 'ValidMail',
+    component: Validmail
+    },
+    {
+      path: '/forgetpassword',
+      name: 'ForgetPass',
+      component: Forgetpass
+      },
+      {
+        path: '/newpass/:forget',
+        name: 'Newpass',
+        component: Newpass
+        },
 ]
 
 const router = new VueRouter({

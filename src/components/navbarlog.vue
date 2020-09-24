@@ -10,7 +10,7 @@
      <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
           <b-navbar-nav class="placementlinks">
-        <b-nav-item href="#">Accueil</b-nav-item>
+        <b-nav-item href="/">Accueil</b-nav-item>
         <b-nav-item href="#">Streaming</b-nav-item>
       </b-navbar-nav>
           <b-nav-item-dropdown text="Lectures" class="placementlinks1">
