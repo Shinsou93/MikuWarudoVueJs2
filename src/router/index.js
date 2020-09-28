@@ -7,6 +7,8 @@ import Sendmail from '../views/Sendmail.vue'
 import Validmail from '../views/Validmail.vue'
 import Forgetpass from '../views/Forgetpass.vue'
 import Newpass from '../views/Newpass.vue'
+import Profil from '../views/Profil.vue'
+
 
 Vue.use(VueRouter)
 
@@ -54,6 +56,11 @@ const routes = [
         name: 'Newpass',
         component: Newpass
         },
+   {
+     path: '/profil/:id',
+     name: 'Profil',
+     component: Profil
+   },     
 ]
 
 const router = new VueRouter({
