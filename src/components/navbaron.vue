@@ -51,7 +51,7 @@ name: "navbar"
 
 <style>
 .mynav{
-    position: absolute;
+    position: fixed;
     width: 100%;
     max-height: 100px;
 }

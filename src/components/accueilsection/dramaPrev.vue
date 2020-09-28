@@ -65,7 +65,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .vignettes-placement{
     display: flex;
     z-index: 1;
@@ -84,6 +84,10 @@ color: #fcff00;
 margin-top: -40px;
 margin-bottom: 40px;
 
+}
+
+.imagedrama img:hover{
+  cursor: pointer;
 }
 
 </style>

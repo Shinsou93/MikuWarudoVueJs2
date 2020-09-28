@@ -1,7 +1,8 @@
 <template>
   <div class="mesvideos">
 
-    <b-embed v-if="video !== null" type="video" autoplay muted>
+    <b-embed v-if="video !== null" type="video" muted autoplay>
+      
         <source :src="require(`@/assets/${video}.mp4`)" type="video/mp4" width="100%"/>
         
     </b-embed>

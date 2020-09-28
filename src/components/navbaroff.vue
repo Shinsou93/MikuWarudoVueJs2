@@ -38,12 +38,12 @@ name: "navbar"
 }
 </script>
 
-<style>
+<style scoped>
 .mynav{
-    position: absolute;
+    position: fixed;
     width: 100%;
     max-height: 100px;
-    z-index: 999;
+    z-index: 1;
 }
 .colorfond{
     background-color: rgba(0,0,0,0.5);
