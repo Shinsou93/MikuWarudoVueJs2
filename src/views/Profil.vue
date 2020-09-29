@@ -15,6 +15,7 @@
             <p>Upgrade to</p>
             <a href="/premium">Premium</a>
             </div>
+           
             <p class="pseudo">Pseudo:</p>
             <input name="pseudo" type="text" id="pseudo" v-model.trim="user.pseudo">
             <p class="nom">Nom:</p>
@@ -69,6 +70,8 @@ data () {
         annee: null,
         description: '',
         token: {},
+        image: '',
+        
         
         optionsJ: [
             { value: null, text: 'Jour' },
@@ -166,17 +169,22 @@ methods: {
         this.$v.$touch();
         if(this.$v.$pendding || this.$v.$error) return;
         this.update();
-
-
     },
 
     update: function(){
-        this.axios.get("http://localhost:3000/profil/update/:id" + this.id)
+        this.axios.get("http://localhost:3000/profil/update/:id" + this.id, {
+            pseudo: this.pseudo,
+            nom: this.nom,
+            prenom: this.prenom,
+            jour: this.jour,
+            mois: this.mois,
+            annee: this.annee,
+            description: this.description
+        })
         .then(res => {
-            if(res.data.token){
-                this.user = VueJwtDecode.decode(res.data.token)
-                localStorage.setItem("token",res.data.token)
-                this.$router.push({ name: "Accueil", params: { id: this.user.id } })
+            if(res.data.token){                
+                localStorage.refreshItem("token",res.data.token)
+                this.$router.push({ name: "Accueil" })
                 
             }else{
                 

@@ -1,30 +1,19 @@
 <template>
-  <div class="afficheanimeprev">
+  <div class="lecteur">
     
-    <div class="baniere">
-      <img src="@/assets/StarSkyBaniere.jpg" alt="">
-      <h2>ANIMES</h2>
-    </div>
-    <!-- afficher la components lesVideo dans Accueil -->
-    <div class="video-ajustement">
-    <myvideo v-if="(video !== null, renderComponent)" :video="video" :info="info"/>
+    
+    
+    
+        <div>
+            <b-card v-for="anime in animes" :key="anime.id" style="max-width: 20rem;" class="mb-2">
+            <img :src="require(`@/assets/${anime.images[0].image}.jpg`)" alt="imagecard">
+            <b-card-text>
+                {{anime.titre}}
+            </b-card-text>
 
-
-    </div>
-    <div class="vignettes-placement">
-      <div class="imageanime" v-for="anime in animes" :key="anime.id">
-        <img
-          @click="reafficher(anime.videos[0].video, anime)"
-          :src="require(`@/assets/${anime.images[0].image}.jpg`)" width="300" height="150"
-        />
-<p class="tailletitre">{{ anime.titre }}</p>
-
-        
-      </div>
-      
-    </div>
-
-    <a href="/animeliste" class="animeliste-btn">Explorer</a>
+            <b-button href="#" variant="primary">Go somewhere</b-button>
+            </b-card>
+        </div>
 
 
   </div>
@@ -32,31 +21,34 @@
 
 <script>
 // @ is an alias to /src
-import myvideo from "@/components/lesVideo.vue";
 export default {
-  name: "animePrev",
+  name: "lecteurstreaming",
   components: {
-    myvideo,
+    
   },
   data() {
     return {
       info: {},
-      video: "GintamaPrev",
+      video: "",
       renderComponent: true,
       animes: {},
       titre: {},
+      episodes: {},
+      image: {}
     };
   },
   created() {
-    this.axios.get("http://localhost:3000/anime/limit/4")
+    this.axios.get("http://localhost:3000/anime/episodes/4")
       .then((res) => {
         console.log(res.data);
-        this.animes = res.data.animes;
+        this.episodes = res.data.episodes;
       })
       .catch((err) => {
         alert(err);
       });
   },
+
+
   methods: {
     reafficher: function (videolink, info) {
       this.video = videolink;
@@ -70,8 +62,8 @@ this.info = info;
 };
 </script>
 
-<style>
-.afficheanimeprev{
+<style scoped>
+.lecteur{
     margin: 10px auto;
     padding: 0;
     position: relative;

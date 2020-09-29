@@ -21,6 +21,7 @@
       </div>
     </div>
 
+<a href="/dramaliste" class="dramaliste-btn">Explorer</a>
 
   </div>
 </template>
@@ -70,7 +71,8 @@ export default {
     display: flex;
     z-index: 1;
     justify-content: space-evenly;
-margin-top: -190px;
+margin-top: -220px;
+    margin-bottom: 45px;
 }
 
 .affichedramaprev{
@@ -88,6 +90,22 @@ margin-bottom: 40px;
 
 .imagedrama img:hover{
   cursor: pointer;
+}
+
+.dramaliste-btn{
+  position: absolute;
+    font-size: 22px;
+    z-index: 1;
+    top: 98%;
+    background: rgba(0,0,0,0.7);
+    color: #fcff00;
+    padding: 2px 5px;
+    font-family: MV Boli;
+    border-radius: 20px;
+    width: 10%;
+    border: 1px solid #00fffc;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 </style>

@@ -8,7 +8,10 @@ import Validmail from '../views/Validmail.vue'
 import Forgetpass from '../views/Forgetpass.vue'
 import Newpass from '../views/Newpass.vue'
 import Profil from '../views/Profil.vue'
-
+import AnimeListe from '../views/AnimeListe.vue'
+import DramaListe from '../views/DramaListe.vue'
+import LiveEmissionListe from '../views/LiveEmissionListe.vue'
+import AnimeStreaming from '../views/AnimeStreaming.vue'
 
 Vue.use(VueRouter)
 
@@ -60,7 +63,28 @@ const routes = [
      path: '/profil/:id',
      name: 'Profil',
      component: Profil
-   },     
+   },
+   {
+    path: '/animeliste',
+    name: 'AnimeListe',
+    component: AnimeListe
+  },   
+  {
+    path: '/dramaliste',
+    name: 'DramaListe',
+    component: DramaListe
+  },  
+  {
+    path: '/liveemissionliste',
+    name: 'LiveEmissionListe',
+    component: LiveEmissionListe
+  },
+  {   
+  path: '/animestreaming/:id',
+  name: 'AnimeStreaming',
+  component: AnimeStreaming
+  },
+  
 ]
 
 const router = new VueRouter({

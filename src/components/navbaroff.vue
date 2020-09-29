@@ -23,10 +23,10 @@
     <b-nav-form>
           <b-form-input size="sm" class="mr-sm-2 style-recherche" placeholder="Rechercher..."></b-form-input>
         </b-nav-form>
-        <a href="/login">
+        <a href="/login" >
           <img src="../assets/poweroff.png" alt="boutonoff" width="40">
         </a>
-    </div>
+      </div>
   </b-navbar>
 
   </div>
