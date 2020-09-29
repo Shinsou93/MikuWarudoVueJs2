@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       info: {},
-      video: "OneOkRockPrev",
+      video: "OORmute",
       renderComponent: true,
       lives: {},
       titre: {},

@@ -26,11 +26,19 @@ import mylecteuranime from '../components/lecteurstreaming'
 export default {
 name: 'AnimeStreaming',
 
+data () {
+    return {
+        anime: {},
+    }
+},
+
 components: {
     myNavbaron,
     mylecteuranime,
     myFooter
-}
+},
+
+
 }
 </script>
 

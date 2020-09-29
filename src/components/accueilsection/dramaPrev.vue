@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       info:{},
-      video: "GTOPrev",
+      video: "GTOmute",
       renderComponent: true,
       dramas: {},
       titre: {},

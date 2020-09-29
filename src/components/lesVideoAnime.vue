@@ -1,23 +1,19 @@
 <template>
   <div class="mesvideos">
 
-    <b-embed v-if="video !== null" type="video" autoplay>
+    <b-embed v-if="video !== null" type="video" autoplay controls>
       
         <source :src="require(`@/assets/${video}.mp4`)" type="video/mp4" width="100%"/>
         
     </b-embed>
 
-<div class="titreprev">
-    <p>{{ info.titre }}</p>
-</div>
-<h3 class="synopsis">Synopsis :</h3>
-<p class="syno-text">{{ info.synopsis }}</p>
+
   </div>
 </template>
 
 <script>
 export default {
-name: "lesVideo",
+name: "lesVideoAnime",
 props: ["video", "info"]
 }
 </script>

@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       info: {},
-      video: "GintamaPrev",
+      video: "Gintamamute",
       renderComponent: true,
       animes: {},
       titre: {},
