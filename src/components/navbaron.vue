@@ -13,9 +13,13 @@
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-          <b-navbar-nav class="placementlinks">
-        <b-nav-item href="#">Accueil</b-nav-item>
-        <b-nav-item href="#">Streaming</b-nav-item>
+      <b-navbar-nav class="placementlinks">
+        <b-nav-item href="/">Accueil</b-nav-item>
+        <b-nav-item-dropdown text="Streaming">
+          <b-dropdown-item href="/animeliste">Animes</b-dropdown-item>
+          <b-dropdown-item href="/dramaliste">Dramas</b-dropdown-item>
+          <b-dropdown-item href="/liveemissionliste">Live/Emissions</b-dropdown-item>
+        </b-nav-item-dropdown>
       </b-navbar-nav>
           <b-nav-item-dropdown text="Lectures" class="placementlinks1">
           <b-dropdown-item href="#">Actu-Jap</b-dropdown-item>
@@ -31,10 +35,10 @@
         <b-nav-item-dropdown>
           <!-- Using 'button-content' slot -->
           <template v-slot:button-content>
-            <img src="../assets/poweroff.png" alt="boutonoff" width="40">
+            <img src="../assets/poweron.png" alt="boutonoff" width="40">
           </template>
-          <b-dropdown-item href="#">Profil</b-dropdown-item>
-          <b-dropdown-item href="#">Connexion</b-dropdown-item>
+          <b-dropdown-item href="/profil">Profil</b-dropdown-item>
+          <b-dropdown-item href="/">Deconnexion</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -51,7 +55,7 @@ name: "navbar"
 
 <style>
 .mynav{
-    position: absolute;
+    position: fixed;
     width: 100%;
     max-height: 100px;
 }

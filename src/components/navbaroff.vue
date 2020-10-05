@@ -11,7 +11,11 @@
       <b-navbar-nav class="ml-auto">
           <b-navbar-nav class="placementlinks">
         <b-nav-item href="#">Accueil</b-nav-item>
-        <b-nav-item href="#">Streaming</b-nav-item>
+        <b-nav-item-dropdown text="Streaming">
+          <b-dropdown-item href="/animeliste">Animes</b-dropdown-item>
+          <b-dropdown-item href="/dramaliste">Dramas</b-dropdown-item>
+          <b-dropdown-item href="/liveemissionliste">Live/Emissions</b-dropdown-item>
+        </b-nav-item-dropdown>
       </b-navbar-nav>
           <b-nav-item-dropdown text="Lectures" class="placementlinks1">
           <b-dropdown-item href="#">Actu-Jap</b-dropdown-item>
@@ -23,10 +27,10 @@
     <b-nav-form>
           <b-form-input size="sm" class="mr-sm-2 style-recherche" placeholder="Rechercher..."></b-form-input>
         </b-nav-form>
-        <a href="/login">
+        <a href="/login" >
           <img src="../assets/poweroff.png" alt="boutonoff" width="40">
         </a>
-    </div>
+      </div>
   </b-navbar>
 
   </div>
@@ -38,12 +42,12 @@ name: "navbar"
 }
 </script>
 
-<style>
+<style scoped>
 .mynav{
-    position: absolute;
+    position: fixed;
     width: 100%;
     max-height: 100px;
-    z-index: 999;
+    z-index: 1;
 }
 .colorfond{
     background-color: rgba(0,0,0,0.5);

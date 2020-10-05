@@ -31,6 +31,8 @@
 <script>
 import myNavbarLog from "../components/navbarlog.vue"
 import myFooter from "../components/myfooter.vue"
+import VueJwtDecode from 'vue-jwt-decode'
+
 
 import { required, minLength, maxLength } from 'vuelidate/lib/validators';
 
@@ -40,7 +42,9 @@ name: "Login",
 data () {
     return {
         pseudo: '',
-        password: ''
+        password: '',
+        user: {}
+        
     }
 },
 
@@ -77,16 +81,14 @@ methods: {
         this.axios.post("http://localhost:3000/user/login", {
             pseudo: this.pseudo,
             password: this.password,
-            nom: this.nom,
-            prenom: this.prenom,
-            datedenaissance: this.datedenaissance,
-            image: this.image
+            
         })
         .then(res => {
             if(res.data.token){
                 localStorage.setItem("token",res.data.token)
-                this.$router.push({ name: "Profil"})
-                window.location.reload();
+                this.user = VueJwtDecode.decode(res.data.token)
+                this.$router.push({ name: "Profil", params: { id: this.user.id } })
+                
             }else{
                 
                 alert('Utilisateur introuvable ou Password incorrecte')

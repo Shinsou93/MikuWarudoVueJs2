@@ -21,6 +21,7 @@
       </div>
     </div>
 
+<a href="/liveemissionliste" class="liveemissionliste-btn">Explorer</a>
 
   </div>
 </template>
@@ -36,7 +37,7 @@ export default {
   data() {
     return {
       info: {},
-      video: "OneOkRockPrev",
+      video: "OORmute",
       renderComponent: true,
       lives: {},
       titre: {},
@@ -74,6 +75,8 @@ position: relative;
     display: flex;
     z-index: 1;
     justify-content: space-evenly;
+    margin-top: -220px;
+    margin-bottom: 45px;
 }
 
 .titre p{
@@ -82,5 +85,25 @@ color: #fcff00;
 margin-top: -40px;
 margin-bottom: 40px;
 
+}
+
+.imagelive img:hover{
+  cursor: pointer;
+}
+
+.liveemissionliste-btn{
+  position: absolute;
+    font-size: 22px;
+    z-index: 1;
+    top: 98%;
+    background: rgba(0,0,0,0.7);
+    color: #fcff00;
+    padding: 2px 5px;
+    font-family: MV Boli;
+    border-radius: 20px;
+    width: 10%;
+    border: 1px solid #00fffc;
+    left: 50%;
+    transform: translateX(-50%);
 }
 </style>
