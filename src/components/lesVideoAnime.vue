@@ -1,11 +1,11 @@
 <template>
   <div class="mesvideos">
 
-    <b-embed v-if="video !== null" type="video" autoplay controls>
+    <!-- <b-embed v-if="video !== null" type="video" autoplay controls>
       
         <source :src="require(`@/assets/${video}.mp4`)" type="video/mp4" width="100%"/>
         
-    </b-embed>
+    </b-embed> -->
 
 
   </div>

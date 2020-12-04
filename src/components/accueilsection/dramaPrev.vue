@@ -7,8 +7,8 @@
     </div>
 
     <!-- afficher la components lesVideo dans Accueil -->
-    <myvideo v-if="(video !== null, renderComponent)" :video="video" :info="info"/>
-
+    <!-- <myvideo v-if="(video !== null, renderComponent)" :video="video" :info="info"/>
+ -->
     <div class="vignettes-placement">
       <div class="imagedrama" v-for="drama in dramas" :key="drama.id">
         <img
@@ -28,11 +28,11 @@
 
 <script>
 // @ is an alias to /src
-import myvideo from "@/components/lesVideo.vue";
-export default {
+/* import myvideo from "@/components/lesVideo.vue";
+ */export default {
   name: "dramaPrev",
   components: {
-    myvideo,
+    /* myvideo */
   },
   data() {
     return {
