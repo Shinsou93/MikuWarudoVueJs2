@@ -13,6 +13,7 @@
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
+<<<<<<< HEAD
       <b-navbar-nav class="placementlinks">
         <b-nav-item href="/">Accueil</b-nav-item>
         <b-nav-item-dropdown text="Streaming">
@@ -20,6 +21,11 @@
           <b-dropdown-item href="/dramaliste">Dramas</b-dropdown-item>
           <b-dropdown-item href="/liveemissionliste">Live/Emissions</b-dropdown-item>
         </b-nav-item-dropdown>
+=======
+          <b-navbar-nav class="placementlinks">
+        <b-nav-item href="/">Accueil</b-nav-item>
+        <b-nav-item href="#">Streaming</b-nav-item>
+>>>>>>> 483b86c9b2203f1caebb3f0515337929f3621886
       </b-navbar-nav>
           <b-nav-item-dropdown text="Lectures" class="placementlinks1">
           <b-dropdown-item href="#">Actu-Jap</b-dropdown-item>
