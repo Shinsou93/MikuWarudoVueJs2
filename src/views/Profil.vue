@@ -17,12 +17,8 @@
             </div>
            
             <p class="pseudo">Pseudo:</p>
-<<<<<<< HEAD
             <input name="pseudo" type="text" id="pseudo" v-model="user.pseudo">
             <div v-if="!$v.pseudo.required"  class="invalid-feedback">Veuillez entrer un Pseudo valide.</div>
-=======
-            <input name="pseudo" type="text" id="pseudo" v-model.trim="user.pseudo">
->>>>>>> 483b86c9b2203f1caebb3f0515337929f3621886
             <p class="nom">Nom:</p>
             <input name="nom" type="text" id="nom" v-model="profil.nom">
             <p class="prenom">Prenom:</p>
@@ -65,11 +61,7 @@ name: "Profil",
 data () {
     return {
         user: {},
-<<<<<<< HEAD
         profil: '',
-=======
-        profil: {},
->>>>>>> 483b86c9b2203f1caebb3f0515337929f3621886
         id: this.$route.params.id,
         pseudo: '',
         nom: '',
@@ -153,13 +145,6 @@ created: function (){
         .catch(err=>{
             alert(err)
         })
-<<<<<<< HEAD
-=======
-    
-
-    
-
->>>>>>> 483b86c9b2203f1caebb3f0515337929f3621886
 },
 
 
@@ -177,23 +162,14 @@ methods: {
 
     },
 
-<<<<<<< HEAD
     huhu: function(){
-=======
-    submit: function(){
->>>>>>> 483b86c9b2203f1caebb3f0515337929f3621886
         this.$v.$touch();
         if(this.$v.$pendding || this.$v.$error) return;
         this.update();
     },
 
-<<<<<<< HEAD
     submit: function(){
         this.axios.put("http://localhost:3000/profil/update/" +this.profil.id,{
-=======
-    update: function(){
-        this.axios.get("http://localhost:3000/profil/update/:id" + this.id, {
->>>>>>> 483b86c9b2203f1caebb3f0515337929f3621886
             pseudo: this.pseudo,
             nom: this.nom,
             prenom: this.prenom,
@@ -203,12 +179,7 @@ methods: {
             description: this.description
         })
         .then(res => {
-<<<<<<< HEAD
             if(res.data){                
-=======
-            if(res.data.token){                
-                localStorage.refreshItem("token",res.data.token)
->>>>>>> 483b86c9b2203f1caebb3f0515337929f3621886
                 this.$router.push({ name: "Accueil" })
                 
             }else{
