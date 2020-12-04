@@ -3,11 +3,11 @@
     
     
     <!-- afficher la components lesVideo dans Accueil -->
-    <div class="video-ajustement">
+    <!-- <div class="video-ajustement">
     <myvideo v-if="(video !== null, renderComponent)" :video="video" :info="info"/>
 
 
-    </div>
+    </div> -->
     <div class="episodeliste">
       <div class="imageanime" v-for="anime in animes" :key="anime.id">
         <img
@@ -38,12 +38,12 @@
 
 <script>
 // @ is an alias to /src
-import myvideo from "@/components/lesVideoAnime.vue";
-export default {
+/* import myvideo from "@/components/lesVideoAnime.vue";
+ */export default {
   name: "lecteurstreaming",
   components: {
-    myvideo,
-  },
+/*     myvideo,
+ */  },
   data() {
     return {
       info: {},
