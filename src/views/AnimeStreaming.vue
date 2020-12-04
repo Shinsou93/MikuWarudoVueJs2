@@ -9,13 +9,10 @@
     </div>
     <mylecteuranime/>
 
-<<<<<<< HEAD
     <div class="fiche" v-for="anime in animes" :key="anime.id">
         <img :src="require(`@/assets/${anime.images[0].image}.jpg`)" alt="">
     </div>
 
-=======
->>>>>>> 483b86c9b2203f1caebb3f0515337929f3621886
 
 
     <myFooter/>    

@@ -40,11 +40,7 @@
 // @ is an alias to /src
 import myvideo from "@/components/lesVideoAnime.vue";
 export default {
-<<<<<<< HEAD
   name: "lecteurstreaming",
-=======
-  name: "animePrev",
->>>>>>> 483b86c9b2203f1caebb3f0515337929f3621886
   components: {
     myvideo,
   },
@@ -58,11 +54,7 @@ export default {
     };
   },
   created() {
-<<<<<<< HEAD
     this.axios.get("http://localhost:3000/anime/all/")
-=======
-    this.axios.get("http://localhost:3000/anime/limit/4")
->>>>>>> 483b86c9b2203f1caebb3f0515337929f3621886
       .then((res) => {
         console.log(res.data);
         this.animes = res.data.animes;
