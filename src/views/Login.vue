@@ -164,7 +164,7 @@ components: {
 
 /* Animation du bouton */
 button {
-    margin-top: 30% !important;
+    margin-top: 10% !important;
   z-index: 1;
   position: relative;
   font-size: 28px !important;
@@ -172,7 +172,7 @@ button {
   color: #fcff00;
   -webkit-text-stroke: 1px #00ff0c;
   padding: 1px auto;
-  width: 25%;
+  width: 30%;
   outline: none;
   background-color: rgba(0,0,0,0.5);
   border-radius: 20px !important;
