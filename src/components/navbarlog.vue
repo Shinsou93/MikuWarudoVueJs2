@@ -1,5 +1,5 @@
 <template>
-  <div class="mynav">
+  <div class="mynavlog">
 
 <b-navbar toggleable="lg" type="light" class="colorfond">
     <b-navbar-brand href="#" class="logoplacement">
@@ -46,8 +46,8 @@ methods: {
 </script>
 
 <style>
-.mynav{
-    position: fixed;
+.mynavlog{
+    position: absolute;
     width: 100%;
     max-height: 100px;
     z-index: 1;
