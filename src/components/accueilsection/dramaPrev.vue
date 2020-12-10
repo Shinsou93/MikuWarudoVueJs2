@@ -102,7 +102,7 @@ margin-bottom: 40px;
     padding: 2px 5px;
     font-family: MV Boli;
     border-radius: 20px;
-    width: 10%;
+    width: 200px;
     border: 1px solid #00fffc;
     left: 50%;
     transform: translateX(-50%);

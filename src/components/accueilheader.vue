@@ -206,4 +206,12 @@ position: relative;
 .colorNom {
     color: #00fffc;
 }
+
+@media screen and (max-width: 1200px) {
+    body {
+        background-color: black !important;
+    }
+}
+    
+
 </style>
