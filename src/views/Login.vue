@@ -117,13 +117,16 @@ components: {
 }
 .imagedefondlog img{
     width: 100%;
+    min-height: 90vh;
 }
 
 .formulairelog{
     
     position: absolute;
     width: 30%;
+    min-width: 320px;
     height: 50%;
+    min-height: 480px;
     background-color: rgba(0, 255, 252, 0.5);
     z-index: 1;
     left: 50%;
@@ -172,7 +175,7 @@ button {
   color: #fcff00;
   -webkit-text-stroke: 1px #00ff0c;
   padding: 1px auto;
-  width: 30%;
+  width: 150px;
   outline: none;
   background-color: rgba(0,0,0,0.5);
   border-radius: 20px !important;

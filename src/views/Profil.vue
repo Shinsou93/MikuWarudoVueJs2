@@ -217,16 +217,19 @@ components: {
 }
 .imagedefondprofil img{
     width: 100%;
+    min-height: 100vh;
 }
 
 .formulaireprofil{
     
     position: absolute;
-    width: 50%;
+    width: 100%;
+    max-width: 800px;
     height: 80%;
+    max-height: 1000px;
     background-color: rgba(172,172,172, 0.5);
     z-index: 1;
-    left: 30%;
+    left: 50%;
     top: -30%;
     transform: translate(-50%,50%);
     border-radius: 20px;
@@ -266,7 +269,7 @@ button {
     color: #00fffc;
     /* -webkit-text-stroke: 1px #00ff0c; */
     padding: 1px auto;
-    width: 30%;
+    width: 250px;
     outline: none;
     background-color: rgba(0,0,0);
     border-radius: 10px !important;
