@@ -1,8 +1,8 @@
 <template>
   <div class="accueil">
     <!-- La Navbar change en fonction du status de l'utilisateur -->
-      <mynavbaroff />
-      <!--<mynavbaron v-if="login()"/>-->
+      <mynavbaroff v-if="Auth=true" />
+      <mynavbaron v-if="Auth=false" />
       <myaccueilheader/>
       <myAnimePrev/>
       <myDramaPrev/>
@@ -35,19 +35,23 @@ components: {
 data () {
   return {
     user: {},
-    status: '',
+    Auth: '',
     login: '',
   }
 
 },
-/*created: {
-  login: function(){    
-    localStorage.getItem('token')
-    this.user = VueJwtDecode.decode('token')
-    console.log('token')
-   
+created: {
+  login: function(res){    
+    localStorage.getItem('res.data.token')
+    if(res.data.token){
+    localStorage.setItem('Auth', true)
+    res.json("Auth=true")
+    }else{
+    localStorage.setItem('Auth', false)
+    res.json("Auth=false")
+    } 
   }
-}*/
+}
 }
 </script>
 
