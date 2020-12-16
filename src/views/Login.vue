@@ -117,7 +117,7 @@ components: {
 }
 .imagedefondlog img{
     width: 100%;
-    min-height: 90vh;
+    min-height: 750px;
 }
 
 .formulairelog{

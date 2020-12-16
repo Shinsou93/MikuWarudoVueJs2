@@ -34,7 +34,7 @@
             <img src="../assets/poweron.png" alt="boutonoff" width="40">
           </template>
           <b-dropdown-item href="/profil">Profil</b-dropdown-item>
-          <b-dropdown-item href="/">Deconnexion</b-dropdown-item>
+          <b-dropdown-item @click="logout()" href="/">Deconnexion</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -45,7 +45,12 @@
 
 <script>
 export default {
-name: "navbar"
+name: "navbar",
+methods: {
+  logout: function (){
+    localStorage.removeItem('token')
+  }
+}
 }
 </script>
 
@@ -54,6 +59,7 @@ name: "navbar"
     position: fixed;
     width: 100%;
     max-height: 100px;
+    z-index: 99;
 }
 .colorfond{
     background-color: rgba(0,0,0,0.5);

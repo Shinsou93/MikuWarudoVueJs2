@@ -1,8 +1,9 @@
 <template>
   <div class="accueil">
     <!-- La Navbar change en fonction du status de l'utilisateur -->
-      <mynavbaroff v-if="Auth=true" />
-      <mynavbaron v-if="Auth=false" />
+      
+      <mynavbaron v-if="myNavOn"/>
+      <mynavbaroff v-else/>
       <myaccueilheader/>
       <myAnimePrev/>
       <myDramaPrev/>
@@ -15,7 +16,7 @@
 <script>
 //import VueJwtDecode from 'vue-jwt-decode'
 import mynavbaroff from "../components/navbaroff.vue"
-//import mynavbaron from "../components/navbaron.vue"
+import mynavbaron from "../components/navbaron.vue"
 import myaccueilheader from "../components/accueilheader.vue"
 import myAnimePrev from "../components/accueilsection/animePrev.vue"
 import myDramaPrev from "../components/accueilsection/dramaPrev.vue"
@@ -25,7 +26,7 @@ export default {
 name: "Accueil",
 components: {
     mynavbaroff,
-    //mynavbaron,
+    mynavbaron,
     myaccueilheader,
     myAnimePrev,
     myDramaPrev,
@@ -34,25 +35,30 @@ components: {
 },
 data () {
   return {
-    user: {},
-    Auth: '',
-    login: '',
+    myNavOn: '',
+    //Auth: null,
   }
 
 },
-created: {
-  login: function(res){    
-    localStorage.getItem('res.data.token')
-    if(res.data.token){
+created: function(){    
+if( localStorage.getItem("token")){
+          this.myNavOn = true;
+        } else  {
+         this.myNavOn = false;
+
+        }
+}
+/* var auth = localStorage.getItem('token')
+    
+  if(auth){
     localStorage.setItem('Auth', true)
-    res.json("Auth=true")
+console.log(auth)
+    auth=this.Auth
     }else{
-    localStorage.setItem('Auth', false)
-    res.json("Auth=false")
-    } 
-  }
+localStorage.removeItem('Auth')} 
+  } */
 }
-}
+
 </script>
 
 <style>

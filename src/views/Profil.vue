@@ -166,24 +166,25 @@ methods: {
     },
 
     submit: function(){
-        this.$v.$touch();
-        if(this.$v.$pendding || this.$v.$error) return;
+      // this.$v.$touch();
+      //if(this.$v.$pendding || this.$v.$error) return;
         this.update();
     },
 
     update: function(){
-        this.axios.get("http://localhost:3000/profil/update/:id" + this.id, {
-            pseudo: this.pseudo,
+        this.axios.put("http://localhost:3000/profil/update/" + this.id, { profil : this.profil
+            /* pseudo: this.pseudo,
             nom: this.nom,
             prenom: this.prenom,
             jour: this.jour,
             mois: this.mois,
             annee: this.annee,
-            description: this.description
+            description: this.description */
+
         })
         .then(res => {
             if(res.data.token){                
-                localStorage.refreshItem("token",res.data.token)
+                localStorage.setItem("token",res.data.token)
                 this.$router.push({ name: "Accueil" })
                 
             }else{
