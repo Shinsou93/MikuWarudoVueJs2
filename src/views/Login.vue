@@ -19,7 +19,6 @@
                     <a href="/register" class="register">S'inscrire</a>
                 </div>
             <button type="submit" class="start">Start !</button>
-
         </form>
         
 

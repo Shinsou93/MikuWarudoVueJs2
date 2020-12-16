@@ -144,11 +144,9 @@ created: function (){
         .catch(err=>{
             alert(err)
         })
-    
-
-    
-
 },
+
+
 
 
 validations: {
@@ -224,14 +222,11 @@ components: {
 .formulaireprofil{
     
     position: absolute;
-    width: 100%;
-    max-width: 800px;
-    height: 80%;
-    max-height: 1000px;
+    width: 35%;
     background-color: rgba(172,172,172, 0.5);
     z-index: 1;
     left: 50%;
-    top: -30%;
+    top: -5%;
     transform: translate(-50%,50%);
     border-radius: 20px;
     border: 3px solid #d557e7;

@@ -41,22 +41,12 @@ data () {
 
 },
 created: function(){    
-if( localStorage.getItem("token")){
-          this.myNavOn = true;
-        } else  {
-         this.myNavOn = false;
-
-        }
-}
-/* var auth = localStorage.getItem('token')
-    
-  if(auth){
-    localStorage.setItem('Auth', true)
-console.log(auth)
-    auth=this.Auth
-    }else{
-localStorage.removeItem('Auth')} 
-  } */
+if( localStorage.getItem("token") ){
+    this.myNavOn = true;
+  } else {
+    this.myNavOn = false;
+      }
+  }
 }
 
 </script>

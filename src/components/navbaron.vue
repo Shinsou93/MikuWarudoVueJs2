@@ -19,7 +19,7 @@
       </b-navbar-nav>
           <b-nav-item-dropdown text="Lectures" class="placementlinks1">
           <b-dropdown-item href="#">Actu-Jap</b-dropdown-item>
-          <b-dropdown-item href="#">Forum</b-dropdown-item>
+          <b-dropdown-item href="/hatsunehighschool">Forum</b-dropdown-item>
         </b-nav-item-dropdown>
 
         <b-nav-form>
