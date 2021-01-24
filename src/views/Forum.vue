@@ -47,8 +47,8 @@ components: {
 
 data() {
 return{
-}
-}
+    }
+  }
 }
 </script>
 

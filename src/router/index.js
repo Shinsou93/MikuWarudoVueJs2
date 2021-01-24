@@ -13,6 +13,7 @@ import DramaListe from '../views/DramaListe.vue'
 import LiveEmissionListe from '../views/LiveEmissionListe.vue'
 import AnimeStreaming from '../views/AnimeStreaming.vue'
 import Forum from '../views/Forum.vue'
+import ActuJap from '../views/ActuJap.vue'
 
 Vue.use(VueRouter)
 
@@ -89,6 +90,11 @@ const routes = [{
         path: '/hatsunehighschool',
         name: 'Forum',
         component: Forum
+    },
+    {
+        path: '/actujap',
+        name: 'ActuJap',
+        component: ActuJap
     },
 ]
 

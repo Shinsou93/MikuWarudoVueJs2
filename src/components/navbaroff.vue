@@ -10,11 +10,11 @@
      <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
           <b-navbar-nav class="placementlinks">
-        <b-nav-item href="#">Accueil</b-nav-item>
+        <b-nav-item href="/">Accueil</b-nav-item>
         <b-nav-item href="/login">Streaming</b-nav-item>
       </b-navbar-nav>
           <b-nav-item-dropdown text="Lectures" class="placementlinks1">
-          <b-dropdown-item href="#">Actu-Jap</b-dropdown-item>
+          <b-dropdown-item href="/actujap">Actu-Jap</b-dropdown-item>
           <b-dropdown-item href="/hatsunehighschool">Forum</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
