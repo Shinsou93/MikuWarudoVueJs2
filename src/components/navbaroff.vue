@@ -1,95 +1,178 @@
 <template>
-  <div class="mynav">
-
-<b-navbar toggleable="lg" type="light" class="colorfond">
-    <b-navbar-brand href="#" class="logoplacement">
-        <img src="../assets/LogoPerso2.png" alt="logo">
-    </b-navbar-brand>
-    <b-navbar-toggle target="nav-collapse" class="burger">&#9776;</b-navbar-toggle>
-    <b-collapse id="nav-collapse" is-nav>
-     <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-          <b-navbar-nav class="placementlinks">
-        <b-nav-item href="/">Accueil</b-nav-item>
-        <b-nav-item href="/login">Streaming</b-nav-item>
-      </b-navbar-nav>
-          <b-nav-item-dropdown text="Lectures" class="placementlinks1">
-          <b-dropdown-item href="/actujap">Actu-Jap</b-dropdown-item>
-          <b-dropdown-item href="/hatsunehighschool">Forum</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
-    </b-collapse>
-    <div class="hors-burger">
-    <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2 style-recherche" placeholder="Rechercher..."></b-form-input>
-        </b-nav-form>
-        <a href="/login" >
-          <img src="../assets/poweroff.png" alt="boutonoff" width="40">
-        </a>
-      </div>
-  </b-navbar>
-
+<div class="navbaroff">
+  <div class="logo">
+    <img src="../assets/LogoPerso2.png" alt="monlogo" width="50%">
   </div>
+  <ul class="nav-links">
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">Streaming</a></li>
+      <li><a href="#">Lectures</a></li>
+      <li><input type="search" class="recherche" placeholder="Rechercher..."></li>
+      <li><a href="#"><img src="../assets/poweroff.png" alt="poweroff" width="40"></a></li>
+  </ul>
+
+<!--burger-->
+  <div class="burger">
+    <div class="line1">
+    </div>
+    <div class="line2">
+    </div>
+    <div class="line3">
+    </div>
+  </div>
+
+</div>
 </template>
 
 <script>
+window.onload = function() {
+  const navSlide = () =>{
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-links');
+  const navLinks = document.querySelectorAll('.nav-links li');
+
+  //activation
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('nav-active');
+
+  //Animation
+    navLinks.forEach((link, index) => {
+      if (link.style.animation) {
+        link.style.animation = '';
+      }else{
+        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
+      }
+    });
+
+    //Animation du Burger
+    burger.classList.toggle('toggle');
+  });
+}
+
+navSlide();
+}
 export default {
-name: "navbar"
+
 }
 </script>
 
 <style scoped>
-.mynav{
-    position: fixed;
-    width: 100%;
-    max-height: 100px;
-    z-index: 1;
-}
-.colorfond{
-    background-color: rgba(0,0,0,0.5);
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
 }
 
-.placementlinks{
-    margin-top: 5px !important;
-    margin-left: -10%;
-    
-}
-.placementlinks1{
-    margin-top: 5px !important;
-       
-}
-
-.logoplacement img{
-    margin-left: 15% !important;
-    width: 100px;
-    
-
-}
-.navbar-light .navbar-nav .nav-link{
-    color: #00fffc !important;
-    font-size: 20px;
-    padding: 0px 20px !important;
-      
+.navbaroff{
+position: fixed;
+display: flex;
+justify-content: space-around;
+align-items: center;
+height: 10vh;
+background-color: rgba(0,0,0,0.5);
+width: 100%;
+z-index: 999;
 }
 
-.navbar-light .navbar-toggler{
-  border: none;
-  outline-style: none;
-  
+.nav-links{
+display: flex;
+justify-content: space-around;
+width: 40%;
+align-items: center;
 }
+
+.nav-links a{
+color: #00fffc;
+text-decoration: none;
+font-size: 20px;
+z-index: 999;
+}
+
+ul > li{
+list-style: none;
+}
+
+.recherche{
+    border-radius: 15px;
+    border: 2px solid #00fffc;
+    outline: none;
+}
+
 .burger{
-  color: #00fffc !important;
-  
+display: none;
+z-index: 999;
+cursor: pointer;
 }
 
-.style-recherche{
-    border-radius: 15px !important;
-    border: 2px solid #00fffc !important;
+.burger div{
+  width: 25px;
+  height: 3px;
+  background-color: #00fffc;
+  margin: 5px;
+  transition: all 0.3s ease;
+  z-index: 99;
 }
 
-.hors-burger{
+@media screen and (max-width: 1024px){
+.nav-links{
+  width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px){
+.body{
+  overflow-x: hidden;
+  }
+
+.nav-links{
+  position: absolute;
+  right: 0px;
+  height: 90vh;
+  top: 10vh;
+  background-color: rgba(0,0,0,0.5);
   display: flex;
-  margin-right: 100px;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in;
+  }
+
+.nav-links li{
+  opacity: 0;
+  }
+
+.burger{
+  display: block;
+  }
+
+
+.nav-active{
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+  from{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle .line1{
+ transform: rotate(-45deg) translate(-5px,6px);
+}
+
+.toggle .line2{
+opacity: 0;
+}
+
+.toggle .line3{
+ transform: rotate(45deg) translate(-5px,-6px);
+
+}
 }
 </style>
